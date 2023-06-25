@@ -1,15 +1,16 @@
 <template>
-    <div class="options-container">
-        <ul>
+    <div class="max-w-screen-lg mx-auto pt-8">
+        <div class="grid grid-cols-1 gap-y-2 mx-auto">
             <button
-                v-for="pokemon in pokemons"
-                :key="pokemon.id"
-                @click="$emit('selection', pokemon.id)"
-                :disabled="disabled"
-            >
-                {{ pokemon.name }}
-            </button>
-        </ul>
+            v-for="pokemon in pokemons"
+            :key="pokemon.id"
+            @click="$emit('selection', pokemon.id)"
+            :disabled="disabled"
+            class="bg-violet-600 text-white font-medium rounded py-1 w-[250px] mx-auto hover:bg-violet-800 transition duration-300 disabled:bg-neutral-400"
+        >
+            {{ pokemon.name }}
+        </button>
+        </div>
     </div>
 </template>
 
@@ -22,40 +23,7 @@ export default {
         },
         disabled: {
             type: Boolean,
-        }
-    }
+        },
+    },
 };
 </script>
-
-<style scoped>
-ul {
-    list-style-type: none;
-    display: flex;
-    flex-direction: column;
-}
-
-button {
-    background-color: white;
-    border-radius: 3px;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-    margin-bottom: 10px;
-    width: 250px;
-    padding: 2.5px;
-}
-
-button:hover {
-    background-color: rgba(0, 0, 0, 0.05);
-}
-
-button:disabled {
-    background-color: transparent;
-    cursor: default;
-}
-
-.options-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 0.5rem;
-}
-</style>

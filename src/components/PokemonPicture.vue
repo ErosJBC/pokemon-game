@@ -1,7 +1,7 @@
 <template>
-    <div class="pokemon-container">
-        <img :src="imgSrc" class="hidden-pokemon" alt="pokemon">
-        <img v-if="showPokemon" :src="imgSrc" class="fade-in" alt="pokemon">
+    <div class="h-[200px] flex justify-center relative">
+        <img :src="imgSrc" class="absolute h-[200px] user-select hidden-pokemon" alt="pokemon">
+        <img v-if="showPokemon" :src="imgSrc" class="fade-in absolute h-[200px] user-select" alt="pokemon">
     </div>
 </template>
 
@@ -29,16 +29,7 @@ export default {
 
 <style scoped>
 
-.pokemon-container {
-    height: 200px;
-    position: relative;
-    display: flex;
-    justify-content: center;
-}
-
-img {
-    height: 200px;
-    position: absolute;
+.user-select {
     user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
